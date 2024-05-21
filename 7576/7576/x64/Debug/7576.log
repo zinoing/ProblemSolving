@@ -1,0 +1,4 @@
+﻿  7576.cpp
+C:\Users\zino\Desktop\ProblemSolving\7576\7576\7576.cpp(56,26): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\7576\7576\7576.cpp(115,22): warning C4267: '=': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  7576.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\7576\x64\Debug\7576.exe

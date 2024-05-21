@@ -1,0 +1,53 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zino\\Desktop\\ProblemSolving\\2667\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{82F783D7-48A0-488E-A1F8-E8BAC1F1E6DD}|2667\\2667.vcxproj|C:\\Users\\zino\\Desktop\\ProblemSolving\\2667\\2667\\2667.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{82F783D7-48A0-488E-A1F8-E8BAC1F1E6DD}|2667\\2667.vcxproj|solutionrelative:2667\\2667.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{82F783D7-48A0-488E-A1F8-E8BAC1F1E6DD}|2667\\2667.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.38.33130\\INCLUDE\\VECTOR||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "vector",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.38.33130\\include\\vector",
+              "ViewState": "AQIAAFMHAAAAAAAAAAAjwGQHAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-05-21T11:31:52.347Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "2667.cpp",
+              "DocumentMoniker": "C:\\Users\\zino\\Desktop\\ProblemSolving\\2667\\2667\\2667.cpp",
+              "RelativeDocumentMoniker": "2667\\2667.cpp",
+              "ToolTip": "C:\\Users\\zino\\Desktop\\ProblemSolving\\2667\\2667\\2667.cpp",
+              "RelativeToolTip": "2667\\2667.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-21T11:19:34.845Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

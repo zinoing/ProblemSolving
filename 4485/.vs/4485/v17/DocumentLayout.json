@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\\uC870\uC9C4\uD638\\Desktop\\ProblemSolving\\4485\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FE934DD3-330C-47EA-BF55-BD31CD3B3A98}|4485\\4485.vcxproj|C:\\Users\\\uC870\uC9C4\uD638\\Desktop\\ProblemSolving\\4485\\4485\\4485.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{FE934DD3-330C-47EA-BF55-BD31CD3B3A98}|4485\\4485.vcxproj|solutionrelative:4485\\4485.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "4485.cpp",
+              "DocumentMoniker": "C:\\Users\\\uC870\uC9C4\uD638\\Desktop\\ProblemSolving\\4485\\4485\\4485.cpp",
+              "RelativeDocumentMoniker": "4485\\4485.cpp",
+              "ToolTip": "C:\\Users\\\uC870\uC9C4\uD638\\Desktop\\ProblemSolving\\4485\\4485\\4485.cpp",
+              "RelativeToolTip": "4485\\4485.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-10T05:36:11.902Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
