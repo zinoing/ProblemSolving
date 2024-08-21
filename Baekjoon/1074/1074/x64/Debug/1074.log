@@ -1,0 +1,9 @@
+﻿  1074.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\1074\1074.cpp(11,29): warning C4244: '초기화 중': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\1074\1074.cpp(13,23): warning C4244: '초기화 중': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\1074\1074.cpp(27,34): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\1074\1074.cpp(38,34): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\1074\1074.cpp(39,34): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\1074\1074.cpp(44,34): warning C4244: '+=': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\1074\1074.cpp(63,29): warning C4244: '초기화 중': 'double'에서 '__int64'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  1074.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\1074\x64\Debug\1074.exe
