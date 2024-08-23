@@ -142,12 +142,6 @@ vector<CCTV> cctvs;
 void dfs(int depth) {
     if (depth == numOfCCTVs) {
         int blindSpots = findBlindSpots();
-
-        if (blindSpots < minBlindSpots) {
-            
-
-        }
-
         minBlindSpots = min(minBlindSpots, blindSpots);
 
         return;

@@ -23,6 +23,7 @@ int findTheFarthestTab(vector<int>& multitab, int currentIdx) {
             nextUse[appliance].pop();
         }
 
+        // 이제 앞으로 나올 일이 없는 경우
         if (nextUse[appliance].empty()) {
             return i;
         }
@@ -49,6 +50,10 @@ void dfs(vector<int>& multitab, vector<int>& electricalApplianceSequence, int id
     for (int i = 0; i < numOfHolesInMultitab; i++) {
         if (multitab[i] == 0) {
             multitab[i] = currentAppliance;
+            for (int i = 0; i < numOfHolesInMultitab; i++) {
+                cout << multitab[i] << " ";
+            }
+            cout << endl;
             dfs(multitab, electricalApplianceSequence, idx + 1, cnt);
             return;
         }
@@ -62,6 +67,10 @@ void dfs(vector<int>& multitab, vector<int>& electricalApplianceSequence, int id
     int tabToPullOut = findTheFarthestTab(multitab, idx);
     int originalValue = multitab[tabToPullOut];
     multitab[tabToPullOut] = currentAppliance;
+    for (int i = 0; i < numOfHolesInMultitab; i++) {
+        cout << multitab[i] << " ";
+    }
+    cout << endl;
     dfs(multitab, electricalApplianceSequence, idx + 1, cnt + 1);
 }
 

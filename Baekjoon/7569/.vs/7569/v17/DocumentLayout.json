@@ -7,10 +7,10 @@
       "RelativeMoniker": "D:0:0:{EF194C64-34CE-4473-9C1B-554A66E2026A}|7569\\7569.vcxproj|solutionrelative:7569\\7569.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF194C64-34CE-4473-9C1B-554A66E2026A}|7569\\7569.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\QUEUE||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\QUEUE||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EF194C64-34CE-4473-9C1B-554A66E2026A}|7569\\7569.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\DEQUE||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\DEQUE||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -32,8 +32,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\queue",
               "ViewState": "AQIAAGoAAAAAAAAAAAAMwHgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-08-13T07:37:29.858Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T07:37:29.858Z"
             },
             {
               "$type": "Document",
@@ -45,8 +44,7 @@
               "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\deque",
               "ViewState": "AQIAAI8EAAAAAAAAAAAMwJ0EAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2024-08-13T07:37:22.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-13T07:37:22.09Z"
             },
             {
               "$type": "Document",
@@ -56,7 +54,7 @@
               "RelativeDocumentMoniker": "7569\\7569.cpp",
               "ToolTip": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Baekjoon\\7569\\7569\\7569.cpp",
               "RelativeToolTip": "7569\\7569.cpp",
-              "ViewState": "AQIAAEcAAAAAAAAAAAAcwFQAAAAlAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAE4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-12T12:44:03.275Z",
               "EditorCaption": ""
