@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\\uD0C0\uAC9F \uB118\uBC84\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0C790646-EF38-4E57-AFAD-F88D429A308F}|\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.vcxproj|C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{0C790646-EF38-4E57-AFAD-F88D429A308F}|\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.vcxproj|solutionrelative:\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "\uD0C0\uAC9F \uB118\uBC84.cpp",
+              "DocumentMoniker": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.cpp",
+              "RelativeDocumentMoniker": "\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.cpp",
+              "ToolTip": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.cpp",
+              "RelativeToolTip": "\uD0C0\uAC9F \uB118\uBC84\\\uD0C0\uAC9F \uB118\uBC84.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAADwvxEAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-29T13:45:10.503Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
