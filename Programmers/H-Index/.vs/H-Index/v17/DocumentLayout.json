@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\H-Index\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A9CEB8D2-4E89-4F78-AA14-39FE6A773E3B}|H-Index\\H-Index.vcxproj|C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\H-Index\\H-Index\\H-Index.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A9CEB8D2-4E89-4F78-AA14-39FE6A773E3B}|H-Index\\H-Index.vcxproj|solutionrelative:H-Index\\H-Index.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "H-Index.cpp",
+              "DocumentMoniker": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\H-Index\\H-Index\\H-Index.cpp",
+              "RelativeDocumentMoniker": "H-Index\\H-Index.cpp",
+              "ToolTip": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\H-Index\\H-Index\\H-Index.cpp",
+              "RelativeToolTip": "H-Index\\H-Index.cpp",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-29T07:40:07.604Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
