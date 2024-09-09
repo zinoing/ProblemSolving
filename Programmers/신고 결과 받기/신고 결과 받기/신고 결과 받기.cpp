@@ -5,6 +5,8 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <set>
+#include <unordered_map>
 
 using namespace std;
 
@@ -31,9 +33,19 @@ vector<string> separate(string str) {
 }
 
 vector<int> solution(vector<string> id_list, vector<string> report, int k) {
-    vector<int> reportedCnt(id_list.size());
-    vector<int> receivedMailCnt(id_list.size());
-    vector<vector<string>> reportedBy(id_list.size());
+
+    int n = id_list.size();
+
+    unordered_map<string, int> reportedCnt;
+    unordered_map<string, set<string>> reportedBy;
+    unordered_map<string, int> receivedMailCnt;
+
+    for (string id : id_list) {
+        reportedCnt.insert(make_pair(id, 0));
+        set<string> newSet;
+        reportedBy.insert(make_pair(id, newSet));
+        receivedMailCnt.insert(make_pair(id, 0));
+    }
 
     for (string reportDetail : report) {
         vector<string> seperatedStr = separate(reportDetail);
@@ -41,36 +53,42 @@ vector<int> solution(vector<string> id_list, vector<string> report, int k) {
         string reported = seperatedStr[1];
 
         // find the reporter
-        for (int t = 0; t < id_list.size(); t++) {
-            if (id_list[t] == reported) {
-                // 이미 신고한 사람인지 아닌지 확인
-                if (find(reportedBy[t].begin(), reportedBy[t].end(), reporter) == reportedBy[t].end()) {
-                    ++reportedCnt[t];
-                    reportedBy[t].push_back(reporter);
-                }
-                break;
+        set<string> reporters = reportedBy.find(reported)->second;
+
+        if (find(reporters.begin(), reporters.end(), reporter) != reporters.end()) continue;
+
+        reportedBy.find(reported)->second.insert(reporter);
+        ++reportedCnt.find(reported)->second;
+    }
+
+    for (auto iter : reportedCnt) {
+        string reported = iter.first;
+        int cnt = iter.second;
+
+        if (cnt >= k) {
+            for (auto reporter : reportedBy.find(reported)->second) {
+                ++receivedMailCnt.find(reporter)->second;
             }
         }
     }
 
-    vector<int> answer(id_list.size());
+    vector<int> answer;
 
-    for (int i = 0; i < reportedCnt.size(); i++) {
+    for (int i = 0; i < n; i++) {
+        string id = id_list[i];
 
-        if (reportedCnt[i] >= k) {
-            for (int j = 0; j < reportedBy[i].size(); j++) {
-                string reporter = reportedBy[i][j];
-
-                // find the reporter
-                for (int t = 0; t < id_list.size(); t++) {
-                    if (reporter == id_list[t]) {
-                        ++answer[t];
-                        break;
-                    }
-                }
-            }
-        }
+        answer.push_back(receivedMailCnt.find(id)->second);
     }
 
     return answer;
+}
+
+int main() {
+    vector<string> id_list = { "muzi", "frodo", "apeach", "neo" };
+    vector<string> report = {"muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"};
+    int k = 2;
+
+    solution(id_list, report, k);
+
+    return 0;
 }

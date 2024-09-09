@@ -5,6 +5,9 @@
     {
       "AbsoluteMoniker": "D:0:0:{A5B3E43C-8CCD-45C7-976A-70835CC533A1}|\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.vcxproj|C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A5B3E43C-8CCD-45C7-976A-70835CC533A1}|\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.vcxproj|solutionrelative:\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A5B3E43C-8CCD-45C7-976A-70835CC533A1}|\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.vcxproj|C:\\PROGRAM FILES\\MICROSOFT VISUAL STUDIO\\2022\\COMMUNITY\\VC\\TOOLS\\MSVC\\14.39.33519\\INCLUDE\\LIST||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,8 +17,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "list",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\list",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\list",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\list",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.39.33519\\include\\list",
+              "ViewState": "AQIAAN8AAAAAAAAAAAApwPEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-09-09T15:17:18.786Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -24,7 +40,7 @@
               "RelativeDocumentMoniker": "\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.cpp",
               "ToolTip": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Programmers\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.cpp",
               "RelativeToolTip": "\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30\\\uC2E0\uACE0 \uACB0\uACFC \uBC1B\uAE30.cpp",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAAAkAAAAAAAAA",
+              "ViewState": "AQIAABgAAAAAZmZmZmYiwCsAAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-09-09T14:38:55.331Z",
               "EditorCaption": ""
