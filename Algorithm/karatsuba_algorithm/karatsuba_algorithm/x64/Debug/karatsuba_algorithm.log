@@ -1,0 +1,19 @@
+﻿  karatsuba_algorithm.cpp
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(7,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(8,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(31,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(48,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(65,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(65,27): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(75,58): warning C4267: '인수': 'size_t'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(75,58): warning C4267:         with
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(75,58): warning C4267:         [
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(75,58): warning C4267:             _Ty=int
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(75,58): warning C4267:         ]
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(76,47): warning C4267: '인수': 'size_t'에서 'const _Ty'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(76,47): warning C4267:         with
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(76,47): warning C4267:         [
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(76,47): warning C4267:             _Ty=int
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(76,47): warning C4267:         ]
+C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\karatsuba_algorithm\karatsuba_algorithm.cpp(129,16): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  karatsuba_algorithm.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Algorithm\karatsuba_algorithm\x64\Debug\karatsuba_algorithm.exe
