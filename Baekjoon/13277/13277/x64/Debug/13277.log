@@ -1,0 +1,9 @@
+﻿  13277.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\13277\13277.cpp(11,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\13277\13277.cpp(21,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\13277\13277.cpp(22,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\13277\13277.cpp(45,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\13277\13277.cpp(62,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\13277\13277.cpp(92,14): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\13277\13277.cpp(131,16): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  13277.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\13277\x64\Debug\13277.exe
