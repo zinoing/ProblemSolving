@@ -7,7 +7,13 @@
 
 using namespace std;
 
-bool checkCorrectStr(string& str, int open, int wildcards, int start, int end) {
+enum class STAR_STATUS {
+    BEFORE_STRING,
+    AFTER_STRING,
+    NO_STAR
+};
+
+int checkCorrectStr(string& str, int start, int end, STAR_STATUS starStatus, int open = 0) {
 
     for (int i = start; i <= end; ++i) {
         auto& c = str[i];
@@ -17,32 +23,40 @@ bool checkCorrectStr(string& str, int open, int wildcards, int start, int end) {
             ++open;
             break;
         case ')':
-            if (open > 0 && wildcards > 0) break;
-
-            if (open > 0) {
-                --open;
-            }
-            else {
-                return false;
-            }
+            --open;
+            if (open < 0) return open;
             break;
         case '?':
             str[i] = '(';
-            if (!checkCorrectStr(str, open, wildcards, i, end)) {
-                str[i] = ')';
-                return checkCorrectStr(str, open, wildcards, i, end);
+            int result = checkCorrectStr(str, i, end, starStatus, open);
+            if (result == 0) return result;
+
+            if (starStatus == STAR_STATUS::BEFORE_STRING) {
+                if (result < 0) return result;
             }
-            else {
-                return true;
+
+            if (starStatus == STAR_STATUS::AFTER_STRING) {
+                if (result > 0) return result;
             }
-            break;
-        case '*':
-            ++wildcards;
+
+            str[i] = ')';
+            result = checkCorrectStr(str, i, end, starStatus, open);
+            if (result == 0) return result;
+
+            if (starStatus == STAR_STATUS::BEFORE_STRING) {
+                if (result < 0) return result;
+            }
+
+            if (starStatus == STAR_STATUS::AFTER_STRING) {
+                if (result > 0) return result;
+            }
+
+            return result;
             break;
         }
     }
 
-    return open == 0;
+    return open;
 }
 
 int main()
@@ -59,17 +73,15 @@ int main()
         string input;
         getline(cin, input);
 
-        string str;
         bool correct = true;
         int star = -1;
         for (int j = 0; j < input.size(); ++j) {
             if (input[j] == '*') {
-                // start가 세팅되어있지 않다면 세팅
+                // star이 세팅되어있지 않다면 세팅
                 if (star == -1) {
                     star = j;
-
-                    // str이 적합하게 짜져 있는지 확인하고, '('와 ')'의 개수를 비교한다.
-                    if (!checkCorrectStr(input, 0, 0, 0, j)) {      // *, string 형태, 둘다 틀려야 틀린 것으로 인정
+                    int check = checkCorrectStr(input, 0, star - 1, STAR_STATUS::AFTER_STRING);
+                    if (check < 0) { // '*'이 나오기 이전의 문자열 비교
                         correct = false;
                         cout << "NO" << endl;
                         break;
@@ -77,23 +89,20 @@ int main()
                 }
                 // 이전에 star가 나온 적이 있다면
                 else {
-                    star = j;
+                    star = j; // star의 idx만 업데이트 시켜준다.
                     continue;
                 }
-            }
-            else {
-                str += input[j];
             }
         }
 
         // 이전에 star가 나온적이 있다면
         if (correct && star != -1) {
-            correct = false;
-            cout << (checkCorrectStr(input, 0, 0, star, input.size() - 1) ? "YES" : "NO") << endl;
+            cout << (checkCorrectStr(input, star + 1, input.size() - 1, STAR_STATUS::BEFORE_STRING) <= 0 ? "YES" : "NO") << endl; // 마지막으로 나온 '*' 이후의 문자열 비교
         }
 
-        if (correct) {
-            cout << (checkCorrectStr(input, 0, 0, 0, input.size() - 1) ? "YES" : "NO") << endl;
+        // 이전에 star가 나온적이 없다면
+        if (star == -1) {
+            cout << (checkCorrectStr(input, 0, input.size() - 1, STAR_STATUS::NO_STAR) == 0 ? "YES" : "NO") << endl;
         }
     }
 }
@@ -111,4 +120,9 @@ int main()
     1.3. *, string, *의 경우 string은 어떠한 문자열이 와도 안정적이다. (이 경우를 체크하여 해당 구간의 문자열의 연산은 생략해주어야 한다.)
 
 따라서 '*'가 나오기 전까지 '('의 개수와 ')'의 개수를 비교하고
+*/
+
+/*
+반례들
+(*)??)
 */
