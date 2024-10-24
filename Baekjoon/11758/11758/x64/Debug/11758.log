@@ -1,0 +1,4 @@
+﻿  11758.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\11758\11758\11758.cpp(17,14): warning C4101: 'y' :참조되지 않은 지역 변수입니다.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\11758\11758\11758.cpp(17,11): warning C4101: 'x' :참조되지 않은 지역 변수입니다.
+  11758.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\11758\x64\Debug\11758.exe
