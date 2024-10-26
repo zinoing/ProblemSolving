@@ -1,0 +1,4 @@
+﻿  11054.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\11054\11054\11054.cpp(22,25): warning C4244: 'initializing': conversion from '__int64' to 'int', possible loss of data
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\11054\11054\11054.cpp(41,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  11054.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\11054\x64\Debug\11054.exe
