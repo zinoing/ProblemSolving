@@ -1,0 +1,3 @@
+﻿  14002.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\14002\14002\14002.cpp(29,35): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
+  14002.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\14002\x64\Debug\14002.exe
