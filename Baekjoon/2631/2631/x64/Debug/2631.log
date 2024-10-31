@@ -1,0 +1,4 @@
+﻿  2631.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\2631\2631\2631.cpp(9,11): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\2631\2631\2631.cpp(23,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  2631.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\2631\x64\Debug\2631.exe
