@@ -3,160 +3,192 @@
 
 #include <iostream>
 #include <vector>
-
-#define GREEN 3
-#define RED 4
-#define FLOWER 5
-
+#include <algorithm>
+#include <list>
 using namespace std;
 
-int n, m, g, r;
-vector<pair<int, int>> fertileSoil;
+#define LAKE 0
+#define CANT_SPRINKLE 1
+#define CAN_SPRINKLE 2
+#define RED 3
+#define GREEN 4
+#define FLOWER 5
 
-int dy[4] = { -1, 0, 0, 1 };
-int dx[4] = { 0, -1, 1, 0 };
-int maxFlower = 0;
+typedef pair<int, int> Pos;
+typedef pair<Pos, int> Sprinkle_Info; // 위치, 색
 
-bool checkOutOfRange(vector<vector<int>> garden, int y, int x) {
-    if (y >= n || y < 0 || x >= m || x < 0)
-        return true;
+int dy[4] = { -1, 1, 0, 0 };
+int dx[4] = { 0, 0, -1, 1 };
 
-    // 호수일 경우 or FLOWER일 경우
-    if (garden[y][x] == 0 || garden[y][x] == FLOWER) {
-        return true;
-    }
-    return false;
+int N, M, G, R;
+vector<vector<int>> originGarden(51, vector<int>(51));
+vector<vector<int>> copiedGarden(51, vector<int>(51));
+vector<vector<int>> visited(51, vector<int>(51));
+vector<vector<int>> copiedVisited(51, vector<int>(51));
+vector<Sprinkle_Info> sprinkles;
+
+int numOfCanSprinkle = 0;
+int maxFlowers = 0;
+
+void getInput() {
+	cin >> N >> M >> G >> R;
+
+	for (int i = 0; i < N; ++i) {
+		for (int j = 0; j < M; ++j) {
+			cin >> originGarden[i][j];
+
+			visited[i][j] = false;
+
+			if (originGarden[i][j] == CAN_SPRINKLE) {
+				sprinkles.push_back(make_pair(Pos(i, j), CAN_SPRINKLE));
+				++numOfCanSprinkle;
+			}
+
+			if (originGarden[i][j] == LAKE) {
+				visited[i][j] = true;
+			}
+		}
+	}
 }
 
-int getFlower(vector<vector<int>> garden, vector<pair<int, int>> gSpread, vector<pair<int, int>> rSpread) {
+bool checkOutOfRange(int y, int x, int color) {
+	if (y >= N || y < 0 || x >= M || x < 0) {
+		return true;
+	}
 
-    vector<pair<int, int>> tempSpread;
-    int numOfFlowers = 0;
+	// 같은 색이거나, 꽃이거나, 호수일 경우
+	if (copiedGarden[y][x] == color) return true;
+	if (copiedGarden[y][x] == FLOWER) return true;
+	if (copiedGarden[y][x] == LAKE) return true;
 
-    do {
-        tempSpread.clear();
-
-        // 초록색 배양액을 먼저 상하좌우로 spread
-        for (auto pos : gSpread) {
-            if (garden[pos.first][pos.second] == FLOWER) continue;
-
-            for (int i = 0; i < 4; ++i) {
-                int dirY = pos.first + dy[i];
-                int dirX = pos.second + dx[i];
-
-                if (checkOutOfRange(garden, dirY, dirX)) continue;
-                if (garden[dirY][dirX] == GREEN) continue;
-                if (garden[dirY][dirX] == RED) continue;
-
-                tempSpread.push_back(make_pair(dirY, dirX));
-                garden[dirY][dirX] = GREEN;
-            }
-        }
-
-        gSpread = tempSpread;
-        tempSpread.clear();
-
-        // 붉은색 배양액을 상하좌우로 spread
-        for (auto pos : rSpread) {
-            if (garden[pos.first][pos.second] == FLOWER) continue;
-
-            for (int i = 0; i < 4; ++i) {
-                int dirY = pos.first + dy[i];
-                int dirX = pos.second + dx[i];
-
-                if (checkOutOfRange(garden, dirY, dirX)) continue;
-                if (garden[dirY][dirX] == RED) continue;
-
-                // 초록색 배양액을 만난다면 flower 탄생
-                if (garden[dirY][dirX] == GREEN) {
-                    for (auto pos : gSpread) {
-                        if (pos != make_pair(dirY, dirX)) continue;
-                        garden[dirY][dirX] = FLOWER;
-                        ++numOfFlowers;
-                    }
-                    continue;
-                }
-
-                tempSpread.push_back(make_pair(dirY, dirX));
-                garden[dirY][dirX] = RED;
-            }
-        }
-
-        rSpread = tempSpread;
-    } while (!tempSpread.empty());
-
-    return numOfFlowers;
+	return false;
 }
 
-void selectSoil(int start, vector<vector<int>> garden, vector<pair<int, int>> gSpread, vector<pair<int, int>> rSpread) {
+int spread(Pos pos, int color, vector<Sprinkle_Info>& newSpread) {
+	int flowerCnt = 0;
+	bool bloom = false;
+	bool sameColor = true;
 
-    // 배양액을 다 사용하였거나 남은 배양액 보다 땅이 적을 경우 종료
-    if ((g == 0 && r == 0) || fertileSoil.size() - start < g + r) {
-        int numOfFlowers = getFlower(garden, gSpread, rSpread);
-        maxFlower = max(maxFlower, numOfFlowers);
-        return;
-    }
+	for (int i = 0; i < 4; ++i) {
+		int dirY = pos.first + dy[i];
+		int dirX = pos.second + dx[i];
 
-    pair<int, int> pos = fertileSoil[start];
-    int y = pos.first;
-    int x = pos.second;
-     
-    if (g > 0) {
-        int origin = garden[y][x];
-        garden[y][x] = GREEN;
-        --g;
-        gSpread.push_back(pos);
-        
-        selectSoil(start + 1, garden, gSpread, rSpread);
-        
-        gSpread.pop_back();
-        ++g;
-        garden[y][x] = origin;
-    }
+		if (checkOutOfRange(dirY, dirX, color)) continue;
 
-    if (r > 0) {
-        int origin = garden[y][x];
-        garden[y][x] = RED;
-        --r;
-        rSpread.push_back(pos);
-        
-        selectSoil(start + 1, garden, gSpread, rSpread);
-        
-        rSpread.pop_back();
-        ++r;
-        garden[y][x] = origin;
-    }
+		for (auto spread : newSpread) {
+			// 새롭게 퍼진 배양액과 위치가 같은 경우
+			if (dirY == spread.first.first && dirX == spread.first.second) {
+				// 색이 다른 경우
+				if (color != spread.second) {
+					copiedGarden[dirY][dirX] = FLOWER;
+					++flowerCnt;
+					bloom = true;
+					sameColor = false;
+					newSpread.erase(remove(newSpread.begin(), newSpread.end(), spread), newSpread.end());
+				}
+				break;
+			}
+		}
 
-    selectSoil(start + 1, garden, gSpread, rSpread);
+		// 새롭게 퍼진 배양액과 겹치지만 같은 색인 경우
+		// 꽃이 피지 않았다면
+		if (!bloom && !copiedVisited[dirY][dirX]) {
+			copiedGarden[dirY][dirX] = color;
+			copiedVisited[dirY][dirX] = true;
+			newSpread.push_back(Sprinkle_Info(Pos(dirY, dirX), color));
+		}
 
-    return;
+		bloom = false;
+		sameColor = true;
+	}
+
+	return flowerCnt;
 }
 
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-    cout.tie(NULL);
+void solve(vector<Sprinkle_Info> permutation) {
+	copiedGarden = originGarden;
+	copiedVisited = visited;
 
-    cin >> n >> m >> g >> r;
+	vector<Sprinkle_Info> newSpread;
+	int flowerCnt = 0;
 
-    vector<vector<int>> garden(n, vector<int>(m));
+	for (int i = 0; i < permutation.size(); ++i) {
+		copiedGarden[permutation[i].first.first][permutation[i].first.second] = permutation[i].second;
+		copiedVisited[permutation[i].first.first][permutation[i].first.second] = true;
+		flowerCnt += spread(permutation[i].first, permutation[i].second, newSpread);
+	}
 
-    for (int i = 0; i < n; ++i) {
-        for (int j = 0; j < m; ++j) {
-            cin >> garden[i][j];
+	while (!newSpread.empty()) {
+		permutation = newSpread;
+		newSpread.clear();
 
-            if (garden[i][j] == 1) {
-                fertileSoil.push_back(make_pair(i, j));
-            }
-        }
-    }
+		for (int i = 0; i < permutation.size(); ++i) {
+			copiedGarden[permutation[i].first.first][permutation[i].first.second] = permutation[i].second;
+			copiedVisited[permutation[i].first.first][permutation[i].first.second] = true;
+			flowerCnt += spread(permutation[i].first, permutation[i].second, newSpread);
 
-    vector<pair<int, int>> gSpread;
-    vector<pair<int, int>> rSpread;
-    selectSoil(0, garden, gSpread, rSpread);
+			//cout << endl;
+			//for (int i = 0; i < N; ++i) {
+			//	for (int j = 0; j < M; ++j) {
+			//		cout << copiedGarden[i][j] << " ";
+			//	}
+			//	cout << endl;
+			//}
+		}
+	}
 
-    cout << maxFlower;
+	maxFlowers = max(flowerCnt, maxFlowers);
 
-    return 0;
+	return;
+}
+
+// 순열 생성과 백트래킹 기능 구현
+void dfs(int idx, vector<Sprinkle_Info> permutation) {
+
+	if (idx == numOfCanSprinkle) {
+		if (G > 0 || R > 0) return;
+		solve(permutation);
+		return;
+	}
+
+	if (G > 0) {
+		// 초록색 변환
+		sprinkles[idx].second = GREEN;
+		permutation.push_back(sprinkles[idx]);
+		visited[sprinkles[idx].first.first][sprinkles[idx].first.second] = true;
+		--G;
+		dfs(idx + 1, permutation);
+		++G;
+		visited[sprinkles[idx].first.first][sprinkles[idx].first.second] = false;
+		permutation.pop_back();
+		sprinkles[idx].second = CAN_SPRINKLE;
+	}
+
+	if (R > 0) {
+		// 붉은색 변환
+		sprinkles[idx].second = RED;
+		permutation.push_back(sprinkles[idx]);
+		visited[sprinkles[idx].first.first][sprinkles[idx].first.second] = true;
+		--R;
+		dfs(idx + 1, permutation);
+		++R;
+		visited[sprinkles[idx].first.first][sprinkles[idx].first.second] = false;
+		permutation.pop_back();
+		sprinkles[idx].second = CAN_SPRINKLE;
+	}
+
+	// 색 변환을 하지 않고 넘어가기
+	dfs(idx + 1, permutation);
+
+	return;
+}
+
+int main() {
+	getInput();
+
+	vector<Sprinkle_Info> permutation;
+	dfs(0, permutation);
+
+	cout << maxFlowers;
+	return 0;
 }
