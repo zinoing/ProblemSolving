@@ -1,0 +1,6 @@
+﻿  20327.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\20327\20327\20327.cpp(43,9): warning C4101: 'temp': unreferenced local variable
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\20327\20327\20327.cpp(63,9): warning C4101: 'temp': unreferenced local variable
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\20327\20327\20327.cpp(127,14): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\20327\20327\20327.cpp(166,18): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  20327.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\20327\x64\Debug\20327.exe
