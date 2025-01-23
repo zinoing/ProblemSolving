@@ -1,0 +1,3 @@
+﻿  3745.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\3745\3745\3745.cpp(22,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  3745.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\3745\x64\Debug\3745.exe
