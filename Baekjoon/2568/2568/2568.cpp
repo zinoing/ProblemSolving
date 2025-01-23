@@ -7,64 +7,51 @@
 using namespace std;
 
 int n;
-vector<int> lines(500001, 0);
+vector<pair<int, int>> lines;
 
-void lis(const vector<int>& lines) {
+void lis() {
+    // 우선적으로 정렬
+    sort(lines.begin(), lines.end());
+
     vector<int> lis;
-    vector<int> record(500001, -1);
+    vector<int> record(lines.size());
 
-    int start = 1;
-    while (lines[start] == 0) {
-        ++start;
-    }
+    lis.push_back(lines[0].second);
 
-    lis.push_back(lines[start]);
-    record[start] = 0;
-
-    for (int i = start + 1; i < 500001; ++i) {
-        if (lines[i] == 0) continue;
-
-        if (lis.back() < lines[i]) {
-            lis.push_back(lines[i]);
+    for (int i = 1; i < lines.size(); ++i) {
+        if (lis.back() < lines[i].second) {
+            lis.push_back(lines[i].second);
             record[i] = lis.size() - 1;
         }
         else {
-            int idx = lower_bound(lis.begin(), lis.end(), lines[i]) - lis.begin();
-            lis[idx] = lines[i];
+            int idx = lower_bound(lis.begin(), lis.end(), lines[i].second) - lis.begin();
+            lis[idx] = lines[i].second;
             record[i] = idx;
         }
     }
 
-    cout << n - lis.size() << endl;
-    int cnt = lis.size() - 1;
+    cout << n - lis.size() << "\n";;
 
-    vector<bool> visited(cnt + 1, false);
+    int cnt = lis.size() - 1;
+    vector<bool> visited(lines.size(), false);
     vector<int> linesToRemove;
 
-    for (int i = 500000; i >= 0; --i) {
-        if (record[i] == -1) continue;
-
-        if (record[i] == cnt) {
-            if (visited[cnt]) {
-                cout << i << endl;
-            }
-            else {
-                visited[cnt] = true;
-                --cnt;
-            }
-            continue;
+    for (int i = record.size() - 1; i >= 0; --i) {
+        if (record[i] == cnt && !visited[i]) {
+            --cnt;
+            visited[i] = true;
         }
-
-        if (record[i] != -1) {
-            linesToRemove.push_back(i);
+        else {
+            linesToRemove.push_back(lines[i].first);
         }
     }
 
     sort(linesToRemove.begin(), linesToRemove.end());
 
     for (auto line : linesToRemove) {
-        cout << line << endl;
+        cout << line << "\n";
     }
+
     return;
 }
 
@@ -80,10 +67,10 @@ int main()
     for (int i = 0; i < n; ++i) {
         cin >> from >> to;
 
-        lines[from] = to;
+        lines.push_back(make_pair(from, to));
     }
 
-    lis(lines);
+    lis();
 
     return 0;
 }
