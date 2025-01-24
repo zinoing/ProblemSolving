@@ -1,0 +1,4 @@
+﻿  9252.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\9252\9252\9252.cpp(53,24): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\9252\9252\9252.cpp(54,25): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  9252.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\9252\x64\Debug\9252.exe
