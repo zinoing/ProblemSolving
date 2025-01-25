@@ -1,2 +1,3 @@
 ﻿  5639.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\5639\5639\5639.cpp(52,28): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
   5639.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\5639\x64\Debug\5639.exe

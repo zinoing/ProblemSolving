@@ -4,111 +4,52 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
 using namespace std;
 
-struct Node {
-	int val = 0;
-	Node* parent = nullptr;
-	Node* leftChild = nullptr;
-	Node* rightChild = nullptr;
-};
+vector<int> nodes;
 
-class PostorderTree {
-	Node* root;
-
-public:
-	PostorderTree(int node) {
-		Node* newNode = new Node();
-		newNode->val = node;
-		root = newNode;
-	}
-
-	void push(int node) {
-		Node* newNode = new Node();
-		newNode->val = node;
-
-		Node* parent = root;
-		while (parent != nullptr) {
-			// 좌측으로 이동
-			if (parent->val > newNode->val) {
-				if (parent->leftChild == nullptr) {
-					parent->leftChild = newNode;
-					newNode->parent = parent;
-					break;
-				}
-				else {
-					parent = parent->leftChild;
-				}
-			}
-			// 우측으로 이동
-			else {
-				if (parent->rightChild == nullptr) {
-					parent->rightChild = newNode;
-					newNode->parent = parent;
-					break;
-				}
-				else {
-					parent = parent->rightChild;
-				}
-			}
-		}
-
+void postorder(int start, int end) {
+	if (start == end) {
+		cout << nodes[start] << "\n";
 		return;
 	}
 
-	void print() {
-		Node* currNode = root;
-		
-		while (1) {
-			while (currNode->leftChild != nullptr) {
-				currNode = currNode->leftChild;
-			}
+	int root = start;
+	int leftTreeEnd = end;
+	int rightTreeStart = end + 1;
 
-			if(currNode->rightChild != nullptr) {
-				currNode = currNode->rightChild;
-				continue;
-			}
-
-			if (currNode == root) {
-				cout << currNode->val;
-				break;
-			}
-			else {
-				cout << currNode->val << "\n";
-
-			}
-
-			if (currNode->parent->rightChild == nullptr) {
-				currNode = currNode->parent;
-				currNode->leftChild = nullptr;
-			}
-			else if (currNode->parent->rightChild == currNode) {
-				currNode = currNode->parent;
-				currNode->leftChild = nullptr;
-				currNode->rightChild = nullptr;
-			}
-			else {
-				currNode = currNode->parent->rightChild;
-				currNode->parent->leftChild = nullptr;
-			}
+	for (int i = root + 1; i <= end; ++i) {
+		// leftTree가 끝나고
+		// rightTree가 생성되는 시점
+		if (nodes[root] < nodes[i]) {
+			leftTreeEnd = i - 1;
+			rightTreeStart = i;
+			break;
 		}
-
-		return;
 	}
-};
+
+	/*
+	left tree 출력
+	right tree 출력 
+	root 출력
+	*/
+	if (root + 1 <= leftTreeEnd)
+		postorder(root + 1, leftTreeEnd);
+	if(rightTreeStart <= end)
+		postorder(rightTreeStart, end);
+	cout << nodes[root] << "\n";
+
+	return;
+}
 
 int main() {
 	int node = 0;
 
-	cin >> node;
-	PostorderTree tree(node);
-
 	while (cin >> node) {
-		tree.push(node);
+		nodes.push_back(node);
 	}
 
-	tree.print();
+	postorder(0, nodes.size() - 1);
 
 	return 0;
 }
