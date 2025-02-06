@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Baekjoon\\10926\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{1D9DAE7A-BA95-4D7D-A485-BE22E951A983}|10926\\10926.vcxproj|C:\\Users\\zino\\Desktop\\ProblemSolving\\Baekjoon\\10926\\10926\\10926.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{1D9DAE7A-BA95-4D7D-A485-BE22E951A983}|10926\\10926.vcxproj|solutionrelative:10926\\10926.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "10926.cpp",
+              "DocumentMoniker": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Baekjoon\\10926\\10926\\10926.cpp",
+              "RelativeDocumentMoniker": "10926\\10926.cpp",
+              "ToolTip": "C:\\Users\\zino\\Desktop\\ProblemSolving\\Baekjoon\\10926\\10926\\10926.cpp",
+              "RelativeToolTip": "10926\\10926.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-02-06T14:49:07.724Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
