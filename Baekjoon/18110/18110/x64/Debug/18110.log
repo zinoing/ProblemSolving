@@ -1,0 +1,3 @@
+﻿  18110.cpp
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\18110\18110\18110.cpp(21,35): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  18110.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\18110\x64\Debug\18110.exe
