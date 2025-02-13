@@ -2,29 +2,8 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
-
-int count(int* arr, int size) {
-    int cnt = 0;
-    int index = 0;
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == -1)
-            continue;
-
-        index = i;
-        while (index != size) {
-            if (arr[index] == -1) {
-                ++cnt;
-                break;
-            }
-            int temp = arr[index] - 1;
-            arr[index] = -1;
-            index = temp;
-        }
-    }
-
-    return cnt;
-}
 
 int main()
 {
@@ -35,18 +14,37 @@ int main()
     int T;
     cin >> T;
 
-    int N;
-    int* arr;
-    for (int i = 0; i < T; i++) {
+    for (int i = 0; i < T; ++i) {
+        int N;
         cin >> N;
-        arr = new int[N];
-        int input;
-        for (int j = 0; j < N; j++) {
-            cin >> input;
-            arr[j] = input;
+
+        vector<int> sequence(N + 1, 0);
+
+        for (int j = 1; j <= N; ++j) {
+            cin >> sequence[j];
         }
-        cout << count(arr, N) << '\n';
-        delete arr;
-        arr = nullptr;
+
+        int cnt = 0;
+        for (int j = 1; j <= N; ++j) {
+
+            // 방문한 노드라면 continue
+            if (sequence[j] == -1) continue;
+
+            int next = j;
+            while (1) {
+                // 이전에 이미 방문한 노드라면 사이클 존재
+                if (sequence[next] == -1) {
+                    ++cnt;
+                    break;
+                }
+                else {
+                    int temp = sequence[next];
+                    sequence[next] = -1;
+                    next = temp;
+                }
+            }
+        }
+
+        cout << cnt << "\n";
     }
 }
