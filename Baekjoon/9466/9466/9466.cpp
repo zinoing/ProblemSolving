@@ -32,7 +32,6 @@ int main()
 
             vector<int> route;
             int next = j;
-            route.push_back(next);
             while (1) {
                 // 이전에 방문을 했던 곳이라면
                 if (visited[next]) {
@@ -42,27 +41,37 @@ int main()
                         for (auto node : route) {
                             inCycle[node] = false;
                         }
-                        break;
                     }
                     // 사이클이 아니라면 이때까지 이루어진 경로 중 사이클이 있다는 뜻 => 사이클 확인 필요
+                    // 아니면 사이클이 아닌 노드에 접근 => 이때까지 갔던 경로 속 모든 노드들이 사이클이 아님
                     else {
-                        bool cycleStart = false;
-                        for (auto node : route) {
-                            if (node == students[next]) {
-                                cycleStart = true;
-                            }
-
-                            if (cycleStart) {
-                                inCycle[node] = true;
+                        if (students[next] != -1) {
+                            bool cycleStart = false;
+                            for (auto node : route) {
+                                if (node == next) {
+                                    cycleStart = true;
+                                }
+                                
+                                if (cycleStart) {
+                                    inCycle[node] = true;
+                                }
+                                else {
+                                    students[node] = -1;
+                                }
                             }
                         }
-                        break;
+                        else {
+                            for (auto node : route) {
+                                students[node] = -1;
+                            }
+                        }
                     }
+                    break;
                 }
 
+                route.push_back(next);
                 visited[next] = true;
                 next = students[next];
-                route.push_back(next);
             }
         }
 
@@ -74,3 +83,12 @@ int main()
         cout << cnt << "\n";
     }
 }
+
+/*
+
+2
+6
+2 3 4 3 6 1
+5
+5 1 2 3 4
+*/
