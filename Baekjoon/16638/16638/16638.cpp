@@ -3,7 +3,8 @@
 
 #include <iostream>
 #include <vector>
-#include <list>
+#include <stack>
+#include <climits>
 
 using namespace std;
 
@@ -31,30 +32,100 @@ int calculate(int a, int b, char op) {
 	return a;
 }
 
-void dfs(int start, int val) {
-	if (start >= numbers.size()) {
-		if (maxVal < val) {
-			maxVal = val;
+// 연산자 우선순위
+int precedence(char op) {
+	if (op == '+' || op == '-') return 1;
+	if (op == '*' || op == '/') return 2;
+	return 0;
+}
+
+vector<char> infixToPostfix(vector<char> infix) {
+	stack<char> postfixStack;
+	vector<char> postFixVec;
+
+	for (auto c : infix) {
+		if (isdigit(c)) {
+			postFixVec.push_back(c);
 		}
+		else if (c == '(') {
+			postfixStack.push(c);
+		}
+		else if (c == ')') {
+			while (1) {
+				if (postfixStack.top() == '(') {
+					postfixStack.pop();
+					break;
+				}
+				postFixVec.push_back(postfixStack.top());
+				postfixStack.pop();
+			}
+		}
+		else {
+			while(!postfixStack.empty() && precedence(postfixStack.top()) >= precedence(c)) {
+				postFixVec.push_back(postfixStack.top());
+				postfixStack.pop();
+			}
+			postfixStack.push(c);
+		}
+	}
+
+	while (!postfixStack.empty()) {
+		postFixVec.push_back(postfixStack.top());
+		postfixStack.pop();
+	}
+
+	return postFixVec;
+}
+
+int calculatePostfix(vector<char> postfix) {
+	stack<int> numbers;
+
+	for (auto c : postfix) {
+		if (isdigit(c)) {
+			numbers.push(c - '0');
+		}
+		else {
+			int b = numbers.top(); numbers.pop();
+			int a = numbers.top(); numbers.pop();
+			numbers.push(calculate(a, b, c));
+		}
+	}
+
+	return numbers.top();  // 최종 결과 반환
+}
+
+void dfs(int start, vector<char> formula) {
+
+	if (start == operators.size()) {
+		formula.push_back(numbers[start] + '0');
+	}
+
+	if (start >= operators.size()) {
+		maxVal = max(maxVal, calculatePostfix(infixToPostfix(formula)));
 		return;
 	}
 
-	// 괄호를 닫았을 경우
-	if (start < numbers.size() - 1) {
-		dfs(start + 2, calculate(val, calculate(numbers[start], numbers[start + 1], operators[start]), operators[start - 1]));
+	// 괄호를 넣지 않을 경우
+	formula.push_back(numbers[start] + '0');
+	if(start < operators.size())
+		formula.push_back(operators[start]);
+	dfs(start + 1, formula);
+	formula.pop_back();
+	if (start < operators.size())
+		formula.pop_back();
+
+	// 괄호를 넣을 경우
+	formula.push_back('(');
+	formula.push_back(numbers[start] + '0');
+	formula.push_back(operators[start]);
+	formula.push_back(numbers[start + 1] + '0');
+	formula.push_back(')');
+
+	if (start + 2 < numbers.size()) {
+		formula.push_back(operators[start + 1]);
 	}
 
-	// 괄호를 하지 않고 넘어가는 경우
-	int idx = start;
-	int temp = numbers[idx];
-	while (idx < operators.size()) {
-		if (operators[idx] == '*') {
-			temp *= numbers[++idx];
-		}
-		else break;
-	}
-	dfs(idx + 1, calculate(val, temp, operators[start - 1]));
-
+	dfs(start + 2, formula);
 }
 
 int main()
@@ -67,7 +138,7 @@ int main()
 	cin >> expression;
 
 	for (auto c : expression) {
-		if (c >= '1' && c <= '9') {
+		if (isdigit(c)) {
 			numbers.push_back(c - '0');
 		}
 		else {
@@ -75,6 +146,6 @@ int main()
 		}
 	}
 
-	dfs(0, 0);
+	dfs(0, vector<char>());
 	cout << maxVal;
 }
