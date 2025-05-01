@@ -1,56 +1,25 @@
-癤�#include <iostream>
+// 12764.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <queue>
 #include <vector>
-#include <list>
+#include <unordered_map>
 #include <algorithm>
 using namespace std;
 
-class Computers {
-    vector<list<pair<int, int>>> computers;
-    
-public:
-    void Push(pair<int, int> time) {
-        // check if there is any computer that can use
-        for (int i = 0; i < computers.size(); i++) {
 
-            auto it = computers[i].begin();
-            if (time.second <= it->first) {
-                computers[i].insert(it, time);
-                return;
-            }
 
-            if (time.first >= computers[i].back().second) {
-                computers[i].push_back(time);
-                return;
-            }
-
-            if (computers[i].size() == 1) {
-                continue;
-            }
-
-            for (int j = 0; j < computers[i].size() - 1; j++) {
-                auto first = std::next(it, j);
-                auto second = std::next(it, j+1);
-
-                if (time.first <= first->second && time.second <= second->first) {
-                    computers[i].insert(first, time);
-                    return;
-                }
-            }
-        }
-
-        // if there isn't any computers to use make new one
-        list<pair<int, int>> list;
-        list.push_back(time);
-        computers.push_back(list);
-    }
-
-    void Print() {
-        cout << computers.size() << '\n';
-        for (int i = 0; i < computers.size(); i++) {
-            cout << computers[i].size() << ' ';
-        }
-    }
+struct Computer {
+    int useCnt;
+    int expectedEndTime;
 };
+
+int numOfPeople;
+unordered_map<int, int> computerUses(numOfPeople);
+priority_queue<int, vector<int>, greater<int>> startTimeQ;
+priority_queue<int, vector<int>, greater<int>> endTimeQ;
+vector<Computer> computers;
 
 int main()
 {
@@ -58,23 +27,48 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 
-    Computers computers;
-    vector<pair<int, int>> inputs;
+    cin >> numOfPeople;
 
-    int numOfUser;
-    cin >> numOfUser;
-
-    int startTime, endTime;
-    for (int i = 0; i < numOfUser; i++) {
-        cin >> startTime >> endTime;
-        inputs.push_back(make_pair(startTime, endTime));
+    for (int i = 0; i < numOfPeople; ++i) {
+        int start, end;
+        cin >> start >> end;
+        computerUses.insert({ start, end });
+        startTimeQ.emplace(start);
     }
 
-    sort(inputs.begin(), inputs.end());
+    while (!startTimeQ.empty()) {
+        int start = startTimeQ.top();
+        startTimeQ.pop();
 
-    for (int i = 0; i < numOfUser; i++) {
-        computers.Push(inputs[i]);
+        // 첫 컴퓨터 사용자일 경우
+        if (endTimeQ.empty()) {
+            computers.push_back(Computer{1, computerUses[start] });
+            endTimeQ.push(computerUses[start]);
+            continue;
+        }
+
+        if (start < endTimeQ.top()) {
+            computers.push_back(Computer{ 1, computerUses[start] });
+            endTimeQ.push(computerUses[start]);
+        }
+        else if (start > endTimeQ.top()) {
+            for(Computer& computer : computers)
+            {
+                if (computer.expectedEndTime <= start) {
+                    computer.useCnt += 1;
+                    computer.expectedEndTime = computerUses[start];
+                    break;
+                }
+            }
+
+            endTimeQ.pop();
+            endTimeQ.push(computerUses[start]);
+        }
     }
 
-    computers.Print();
+    cout << computers.size() << '\n';
+
+    for (Computer computer : computers) {
+        cout << computer.useCnt << ' ';
+    }
 }
