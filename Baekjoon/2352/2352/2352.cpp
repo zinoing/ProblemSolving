@@ -6,20 +6,8 @@
 #include <algorithm>
 using namespace std;
 
-int lis(const vector<int>& ports) {
-    vector<int> lis;
+int lis(vector<int> ports) {
 
-    lis.push_back(ports[0]);
-    for (int i = 1; i < ports.size(); ++i) {
-        if (lis.back() < ports[i]) {
-            lis.push_back(ports[i]);
-        }
-        else {
-            lis[lower_bound(lis.begin(), lis.end(), ports[i]) - lis.begin()] = ports[i];
-        }
-    }
-
-    return lis.size();
 }
 
 int main()
@@ -27,8 +15,8 @@ int main()
     int n;
     cin >> n;
 
-    vector<int> ports(n, 0);
-    for (int i = 0; i < n; ++i) {
+    vector<int> ports(n + 1, 0);
+    for (int i = 1; i <= n; ++i) {
         cin >> ports[i];
     }
 

@@ -45,7 +45,7 @@ int main()
         int N = 7;
         // cin >> N;
         //vector<int> fences(N, 0);
-        vector<int> fences = { 7, 1, 5, 9, 6, 7, 3 };
+        vector<int> fences = { 2, 1, 4, 5, 1, 3, 3 };
         /*
         for (int j = 0; j < N; ++j) {
             int fence;

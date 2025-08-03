@@ -3,24 +3,8 @@
 
 #include <iostream>
 #include <vector>
-#include <queue>
-#include <cmath>
 
-#define INT_MAX 2147483646
 using namespace std;
-
-int getSum(deque<int> dq) {
-    int sum = 0;
-    for (int i = 0; i < dq.size(); i++) {
-        if (i == 0) {
-            sum += dq[i];
-        }
-        else {
-            sum += (dq[i] + 1);
-        }
-    }
-    return sum;
-}
 
 int main()
 {
@@ -29,88 +13,67 @@ int main()
     cout.tie(NULL);
     
     int n, m;
-    vector<int> names;
     cin >> n >> m;
 
-    int name;
-    for (int i = 0; i < n; i++) {
-        cin >> name;
-        names.push_back(name);
+    vector<int> names(n);
+    vector<pair<int, int>> dp(n, make_pair(0, m));
+
+    for (int i = 0; i < n; ++i) {
+        cin >> names[i];
     }
 
-    int index = 0;
-    int lineIndex = 0;
-    deque<int> line[1001];
-    int sum = INT_MAX;
-    int minSum = 0;
-
-
-    while(index < n) {
-        int firstLineSum = 0;
-        int secondLineSum = 0;
-
-        // 이름을 넣어도 첫 번째 라인을 넘지 않는 경우
-        while (index < n && getSum(line[lineIndex]) + names[index] <= m) {
-            line[lineIndex].push_back(names[index]);
-            ++index;
+    dp[0].second -= names[0];
+    int lineCnt = 0;
+    for (int i = 1; i < n; ++i) {
+        // 줄에 채워넣을 수 있는지 확인
+        // 채워 넣을 수 있다면
+        if (dp[lineCnt].second >= (1 + names[i])) {
+            dp[lineCnt].second -= (1 + names[i]);
+            continue; // 다음 이름으로 넘어감
         }
-
-        // 이름을 넣어도 두 번째 라인을 넘지 않는 경우
-        while (index < n && getSum(line[lineIndex + 1]) + names[index] <= m) {
-            line[lineIndex + 1].push_back(names[index]);
-            ++index;
-        }
-
-        // 남은 칸 제곱의 합 계산
-        if (sum > pow(m - getSum(line[lineIndex]), 2) + pow(m - getSum(line[lineIndex + 1]), 2)) {
-
-            firstLineSum = getSum(line[lineIndex]);
-            secondLineSum = getSum(line[lineIndex + 1]);
-
-            sum = pow(m - getSum(line[lineIndex]), 2) + pow(m - getSum(line[lineIndex + 1]), 2);
-        }
-
-        // firstLine의 마지막 이름이 secondLine에 들어갈 수 있는지 확인
-        int firstLineLastName = line[lineIndex].back();
-        if (getSum(line[lineIndex + 1]) + firstLineLastName + 1 <= m) {
-            // 남은 칸 제곱의 합 계산
-            if (sum > pow(m - (getSum(line[lineIndex]) - firstLineLastName - 1), 2) + pow(m - (getSum(line[lineIndex]) + firstLineLastName + 1), 2)) {
-                sum = pow(m - (getSum(line[lineIndex]) - firstLineLastName - 1), 2) + pow(m - (getSum(line[lineIndex]) + firstLineLastName + 1), 2);
-
-                firstLineSum = getSum(line[lineIndex]) - firstLineLastName - 1;
-                secondLineSum = getSum(line[lineIndex]) + firstLineLastName + 1;
-
-                line[lineIndex].pop_back();
-                line[lineIndex + 1].push_front(firstLineLastName);
-            }
-        }
-        // 불가능할 경우
+        // 채워 넣을 수 없다면 다음 줄로 넘어가야 함
         else {
-            // 마지막 이름 제거 후 가능 여부 판단
-            int secondLineLastName = line[lineIndex + 1].back();
-            // 가능
-            if (getSum(line[lineIndex + 1]) + firstLineLastName - secondLineLastName <= m) {
-                // 남은 칸 제곱의 합 계산
-                if (sum > pow(m - (getSum(line[lineIndex]) - firstLineLastName - 1), 2) + pow(m - (getSum(line[lineIndex + 1]) + firstLineLastName - secondLineLastName), 2)) {
-                    sum = pow(m - (getSum(line[lineIndex]) - firstLineLastName - 1), 2) + pow(m - (getSum(line[lineIndex + 1]) + firstLineLastName - secondLineLastName), 2);
+            // 1. 해당 단어만 넘어가는 경우
+            int nextLineSpaceOfFirstCase = m - (names[i]);
 
-                    firstLineSum = getSum(line[lineIndex]) - firstLineLastName - 1;
-                    secondLineSum = getSum(line[lineIndex + 1]) + firstLineLastName - secondLineLastName;
-
-                    line[lineIndex].pop_back();
-                    line[lineIndex + 1].pop_back();
-                    line[lineIndex + 1].push_front(firstLineLastName);
-                    --index;
-                }
+            // 2. 해당 단어의 이전 단어와 같이 넘어 가는 경우
+            // i가 1 초과여야 하며 두 단어의 길이가 m을 넘어서는 안된다.(띄어쓰기 포함)
+            int nextLineSpaceOfSecondCase = m;
+            if (i != 1 && names[i - 1] + 1 + names[i] <= m) {
+                nextLineSpaceOfSecondCase = m - (names[i - 1] + 1 + names[i]);
             }
+
+            // 두 단어가 다음 줄로 내려 가는 경우가 여백의 제곱이 더 클 경우
+            // 한 단어만 내려가는게 더 이득 => dp 초기화
+            if (pow(dp[lineCnt].second, 2) + pow(nextLineSpaceOfFirstCase, 2) <= pow(dp[lineCnt].second + 1 + names[i - 1], 2) + pow(nextLineSpaceOfSecondCase, 2)) {
+                dp[lineCnt + 1].first = i;
+                dp[lineCnt + 1].second = nextLineSpaceOfFirstCase;
+            }
+            // 두 단어가 모두 내려가는게 이득인 경우
+            else {
+                dp[lineCnt].second = dp[lineCnt].second + 1 + names[i - 1];
+
+                dp[lineCnt + 1].first = i - 1;
+                dp[lineCnt + 1].second = nextLineSpaceOfSecondCase;
+            }
+
+            ++lineCnt;
         }
-        
-        if (index < n) {
-            minSum += pow(m - firstLineSum, 2);
-        }
-        ++lineIndex;
-        sum = INT_MAX;
     }
 
-    cout << minSum;
+    // 마지막 줄의 여백은 count 하지 않으니 마지막 줄에서 앞으로 옮길 수 있는 단어가 있는지 확인한다.
+    // 또한 한 줄에서 끝날 수 있으니 dp[lineCnt].first != 0 조건으로 확인한다.
+    if (dp[lineCnt].first != 0 && names[dp[lineCnt].first] < dp[lineCnt - 1].second) {
+        dp[lineCnt - 1].second = dp[lineCnt - 1].second - (1 + names[dp[lineCnt].first]);
+
+        dp[lineCnt].second += (1 + names[dp[lineCnt].first]);
+        dp[lineCnt].first += 1;
+    }
+
+    long sum = 0;
+    for (int i = 0; i < lineCnt; ++i) {
+        sum += pow(dp[i].second, 2);
+    }
+
+    cout << sum;
 }

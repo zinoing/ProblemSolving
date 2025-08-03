@@ -31,5 +31,4 @@ int main()
     }
 
     cout << dp[firstStr.size() - 1][secondStr.size() - 1];
-
 }

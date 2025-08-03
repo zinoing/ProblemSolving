@@ -12,18 +12,19 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
 
-    string S, P;cin >> S >> P;
+    string S, P;
+    cin >> S >> P;
 
-    vector<vector<int>> LIS(S.size(), vector<int>(P.size()));
+    vector<vector<int>> LCS(S.size(), vector<int>(P.size()));
 
     for (int i = 0; i < (int)S.size(); ++i) {
         for (int j = 0; j < (int)P.size(); ++j) {
             if (S[i] == P[j]) {
-                if (i > 0 && j > 0 && LIS[i - 1][j - 1] > 0) {
-                    LIS[i][j] = LIS[i - 1][j - 1] + 1;
+                if (i > 0 && j > 0 && LCS[i - 1][j - 1] > 0) {
+                    LCS[i][j] = LCS[i - 1][j - 1] + 1;
                 }
                 else {
-                    LIS[i][j] = 1;
+                    LCS[i][j] = 1;
                 }
             }
         }
@@ -33,9 +34,9 @@ int main()
 
     for (int i = 0; i < (int)S.size(); ++i) {
         for (int j = 0; j < (int)P.size(); ++j) {
-            if (LIS[i][j] >= 1) {
+            if (LCS[i][j] >= 1) {
                 int idx = 1;
-                while (i + idx < (int)S.size() && j + idx < (int)P.size() && LIS[i + idx][j + idx] != 0) {
+                while (i + idx < (int)S.size() && j + idx < (int)P.size() && LCS[i + idx][j + idx] != 0) {
                     ++idx;
                 }
                 cnt[j] = max(cnt[j], idx);

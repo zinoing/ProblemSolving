@@ -1,10 +1,7 @@
 ﻿  2281.cpp
-C:\Users\조진호\Desktop\ProblemSolving\2281\2281\2281.cpp(9,1): warning C4005: 'INT_MAX': 매크로 재정의
-  C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.39.33519\include\limits.h(36,1):
-  'INT_MAX'의 이전 정의를 참조하십시오.
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\2281\2281\2281.cpp(7,9): warning C4005: 'INT_MAX': macro redefinition
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\limits.h(36,9):
+      see previous definition of 'INT_MAX'
   
-C:\Users\조진호\Desktop\ProblemSolving\2281\2281\2281.cpp(70,55): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\조진호\Desktop\ProblemSolving\2281\2281\2281.cpp(78,85): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\조진호\Desktop\ProblemSolving\2281\2281\2281.cpp(95,89): warning C4244: '=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\조진호\Desktop\ProblemSolving\2281\2281\2281.cpp(109,26): warning C4244: '+=': 'double'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  2281.vcxproj -> C:\Users\조진호\Desktop\ProblemSolving\2281\x64\Debug\2281.exe
+C:\Users\zino\Desktop\ProblemSolving\Baekjoon\2281\2281\2281.cpp(75,19): warning C4244: '+=': conversion from 'double' to 'long', possible loss of data
+  2281.vcxproj -> C:\Users\zino\Desktop\ProblemSolving\Baekjoon\2281\x64\Debug\2281.exe

@@ -75,10 +75,6 @@ queue<Pos> islandBFS(Pos startPos) {
     return corners;
 }
 
-int getMaximumNumOfBridges(int numOfIslandsArg) {
-    return numOfIslandsArg * (numOfIslandsArg - 3) / 2 + numOfIslandsArg;
-}
-
 void findTheShortestBridge(queue<Pos> poses, int islandIdx) {
     queue<Pos> nextPoses = poses;
     int cnt = 0;
@@ -140,8 +136,6 @@ int main()
     }
 
     numOfIslands -= 2;
-
-    maximumBirdges = getMaximumNumOfBridges(numOfIslands);
 
     // need to find closest island
     for (int i = 0; i < cornersByIslands.size(); i++) {
