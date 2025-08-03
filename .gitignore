@@ -404,8 +404,8 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudio
 
-.vs/
-x64/
-*.vcxproj
-*.vcxproj.filters
-*.vcxproj.user
+**/.vs/
+**/x64/
+**/*.vcxproj
+**/*.vcxproj.filters
+**/*.vcxproj.user
